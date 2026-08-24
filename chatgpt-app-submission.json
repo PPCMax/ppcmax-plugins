@@ -1,0 +1,1460 @@
+{
+  "$schema": "https://developers.openai.com/apps-sdk/schemas/chatgpt-app-submission.v1.json",
+  "schema_version": 1,
+  "app_info": {
+    "display_name": "PPCMax",
+    "subtitle": "Optimize ads, feeds and tags",
+    "description": "PPCMax helps advertisers audit and optimize Google Ads campaigns, improve Merchant Center feeds, apply Tag Manager changes, and analyze Google Analytics data in one specialized workflow.",
+    "category": "PRODUCTIVITY"
+  },
+  "tools": {
+    "listAccountLinks": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getSkill": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "analyzeSearchTerms": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Changes only private PPCMax state and cannot change Google Ads, Merchant Center, or Google Tag Manager.",
+        "read_only_justification": "Stores a private analysis snapshot so bounded follow-up tools can retrieve the complete result."
+      }
+    },
+    "applyLabelizerConfig": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Replaces the current private labelizer configuration after user approval.",
+        "open_world_justification": "Changes only private PPCMax state and cannot change Google Ads, Merchant Center, or Google Tag Manager.",
+        "read_only_justification": "Creates, updates, deletes, or changes private PPCMax account state."
+      }
+    },
+    "getMerchantExportSettings": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "saveMerchantExportSettings": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Replaces the complete scheduled Merchant export configuration after approval.",
+        "open_world_justification": "Can change products, feeds, settings, or issue workflows in the user's external Merchant Center account.",
+        "read_only_justification": "Creates, updates, submits, or exports Merchant and feed state."
+      }
+    },
+    "approveAndApplyProductAttributeRecommendationDraft": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Overwrites selected Merchant product attributes after checksum validation and user approval.",
+        "open_world_justification": "Can change products, feeds, settings, or issue workflows in the user's external Merchant Center account.",
+        "read_only_justification": "Creates, updates, submits, or exports Merchant and feed state."
+      }
+    },
+    "cancelScheduledAction": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Irreversibly cancels the selected queued action before it executes.",
+        "open_world_justification": "Changes only private PPCMax state and cannot change Google Ads, Merchant Center, or Google Tag Manager.",
+        "read_only_justification": "Creates, updates, deletes, or changes private PPCMax account state."
+      }
+    },
+    "createDsaCampaignFromPageFeed": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "createGoogleAdsAudience": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "createMemory": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Changes only private PPCMax state and cannot change Google Ads, Merchant Center, or Google Tag Manager.",
+        "read_only_justification": "Creates, updates, deletes, or changes private PPCMax account state."
+      }
+    },
+    "createPmaxFeedOnlyCampaign": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "createProductAttributeRecommendationDraft": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Changes only private PPCMax state and cannot change Google Ads, Merchant Center, or Google Tag Manager.",
+        "read_only_justification": "Creates, updates, deletes, or changes private PPCMax account state."
+      }
+    },
+    "createSearchCampaign": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "createStandardShoppingCampaign": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "createWebsiteRemarketingList": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "deleteAccountDocument": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Permanently deletes the selected private account document and its indexed content after approval.",
+        "open_world_justification": "Changes only private PPCMax state and cannot change Google Ads, Merchant Center, or Google Tag Manager.",
+        "read_only_justification": "Creates, updates, deletes, or changes private PPCMax account state."
+      }
+    },
+    "deleteMemory": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Permanently deletes the selected private account memory after approval.",
+        "open_world_justification": "Changes only private PPCMax state and cannot change Google Ads, Merchant Center, or Google Tag Manager.",
+        "read_only_justification": "Creates, updates, deletes, or changes private PPCMax account state."
+      }
+    },
+    "diagnose": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "dsaPageFeed": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "duplicateMerchantProducts": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Can change products, feeds, settings, or issue workflows in the user's external Merchant Center account.",
+        "read_only_justification": "Creates, updates, submits, or exports Merchant and feed state."
+      }
+    },
+    "evaluateTRoasCampaign": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "explainMerchantProductIssues": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "exportFeed": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Can overwrite existing Merchant product data through an explicitly approved feed export.",
+        "open_world_justification": "Can change products, feeds, settings, or issue workflows in the user's external Merchant Center account.",
+        "read_only_justification": "Creates, updates, submits, or exports Merchant and feed state."
+      }
+    },
+    "forecastKeywordPlanResults": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "get_dimensions_by_category": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "get_ga4_data": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "get_metrics_by_category": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "get_property_schema": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "list_dimension_categories": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "list_metric_categories": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "search_schema": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "generateAdCopyDrafts": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Changes only private PPCMax state and cannot change Google Ads, Merchant Center, or Google Tag Manager.",
+        "read_only_justification": "Creates, updates, deletes, or changes private PPCMax account state."
+      }
+    },
+    "getAccountPerformance": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getCampaignAudiences": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getCartDataSales": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getConversionSetup": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getDsaPageFeedReport": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getDsaTargetsReport": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getFeedExportRun": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getLabelizerConfig": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getLabelizerCurrentState": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getLabelizerHistory": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getMerchantProductStatuses": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getMerchantStatusOverview": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getProductAttributeRecommendationDraft": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getCampaignInspectionDetail": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getPerformanceInspectionDetail": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getSearchTermAnalysisDetail": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "googleAdsAsset": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes a detach operation that removes an existing Google Ads asset association after approval.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "googleAdsConversion": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Can overwrite conversion-goal configuration in Google Ads after approval.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "gtm_account": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "gtm_built_in_variable": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes update, remove, revert, publish, or conflict-resolution modes that can overwrite existing Google Tag Manager state.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "gtm_client": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes update, remove, revert, publish, or conflict-resolution modes that can overwrite existing Google Tag Manager state.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "gtm_container": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes update, remove, revert, publish, or conflict-resolution modes that can overwrite existing Google Tag Manager state.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "gtm_destination": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "gtm_environment": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes update, remove, revert, publish, or conflict-resolution modes that can overwrite existing Google Tag Manager state.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "gtm_folder": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes update, remove, revert, publish, or conflict-resolution modes that can overwrite existing Google Tag Manager state.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "gtm_gtag_config": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes update, remove, revert, publish, or conflict-resolution modes that can overwrite existing Google Tag Manager state.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "gtm_tag": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes update, remove, revert, publish, or conflict-resolution modes that can overwrite existing Google Tag Manager state.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "gtm_template": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes update, remove, revert, publish, or conflict-resolution modes that can overwrite existing Google Tag Manager state.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "gtm_transformation": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes update, remove, revert, publish, or conflict-resolution modes that can overwrite existing Google Tag Manager state.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "gtm_trigger": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes update, remove, revert, publish, or conflict-resolution modes that can overwrite existing Google Tag Manager state.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "gtm_variable": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes update, remove, revert, publish, or conflict-resolution modes that can overwrite existing Google Tag Manager state.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "gtm_version": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes update, remove, revert, publish, or conflict-resolution modes that can overwrite existing Google Tag Manager state.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "gtm_version_header": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "gtm_workspace": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes update, remove, revert, publish, or conflict-resolution modes that can overwrite existing Google Tag Manager state.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "gtm_zone": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Includes update, remove, revert, publish, or conflict-resolution modes that can overwrite existing Google Tag Manager state.",
+        "open_world_justification": "Can change resources in the user's external Google Tag Manager account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Tag Manager account."
+      }
+    },
+    "changeHistory": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getGoogleAdsGeoTargetConstants": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "getWinnerAds": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "inspectAds": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "inspectCampaigns": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Changes only private PPCMax state and cannot change Google Ads, Merchant Center, or Google Tag Manager.",
+        "read_only_justification": "Stores a private analysis snapshot so bounded follow-up tools can retrieve the complete result."
+      }
+    },
+    "inspectPerformance": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Changes only private PPCMax state and cannot change Google Ads, Merchant Center, or Google Tag Manager.",
+        "read_only_justification": "Stores a private analysis snapshot so bounded follow-up tools can retrieve the complete result."
+      }
+    },
+    "listAccountDocuments": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "listAssets": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "listAudienceSegments": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "listGoogleAdsResources": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "listKeywords": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "listLabelizerCurrentProducts": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "listListingGroups": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "listMemories": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "listMerchantProductsWithIssues": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "listNegativeKeywords": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "listProducts": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "listScheduledActions": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "readAgentConfig": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "readProductAttributes": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "rejectProductAttributeRecommendationDraft": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Irreversibly changes the selected private recommendation draft to rejected after approval.",
+        "open_world_justification": "Changes only private PPCMax state and cannot change Google Ads, Merchant Center, or Google Tag Manager.",
+        "read_only_justification": "Creates, updates, deletes, or changes private PPCMax account state."
+      }
+    },
+    "researchKeywordIdeas": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "searchAccountDocuments": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "searchAccountMemories": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "searchChatHistory": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "setGoogleAdsStatus": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Can set a Google Ads resource to REMOVED after validation and user approval.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "updateAgentConfig": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Overwrites selected answers in the private PPCMax account configuration after approval.",
+        "open_world_justification": "Changes only private PPCMax state and cannot change Google Ads, Merchant Center, or Google Tag Manager.",
+        "read_only_justification": "Creates, updates, deletes, or changes private PPCMax account state."
+      }
+    },
+    "updateListingGroups": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Can replace or remove nodes in an existing Google Ads listing-group tree after approval.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "validateAdTextConstraints": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "validateKeywordHistoricalMetrics": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "writeAd": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Can overwrite text on an existing Google Ads ad after validation and approval.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "writeAdGroup": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Can update or remove an existing Google Ads ad group after validation and approval.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "writeCampaignCriteria": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Can replace or remove existing Google Ads campaign criteria after validation and approval.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "writeCampaignSettings": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Overwrites selected settings on an existing Google Ads campaign after validation and approval.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "writeCustomerNegativeCriteria": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "writeDsaPageFeed": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "writeDsaTargets": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Can replace or delete existing Google Ads DSA targets after validation and approval.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "writeKeyword": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Can overwrite final URLs on existing Google Ads keywords after validation and approval.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "writeNegativeKeywordList": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Can detach an existing negative keyword list from Google Ads campaigns after approval.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "writeNegativeKeywords": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Can remove existing negative keywords from Google Ads after validation and approval.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "getCampaignPerformance": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "listBrandLogos": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "createDemandGenCampaign": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "triggerMerchantProductIssueAction": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Submits a Merchant issue-resolution form that cannot be recalled after approval.",
+        "open_world_justification": "Can change products, feeds, settings, or issue workflows in the user's external Merchant Center account.",
+        "read_only_justification": "Creates, updates, submits, or exports Merchant and feed state."
+      }
+    },
+    "excludeDsaUrls": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Can change campaigns, targeting, ads, or related resources in the user's external Google Ads account.",
+        "read_only_justification": "Creates or changes resources in the user's Google Ads account."
+      }
+    },
+    "inspectDsaSearchTerms": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Changes only private PPCMax state and cannot change Google Ads, Merchant Center, or Google Tag Manager.",
+        "read_only_justification": "Stores a private analysis snapshot so bounded follow-up tools can retrieve the complete result."
+      }
+    },
+    "getDsaSearchTermInspectionDetail": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
+        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
+        "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    }
+  },
+  "test_cases": [
+    {
+      "description": "Audit Google Ads performance and prioritize actions.",
+      "user_prompt": "Audit my linked Google Ads account for the last 30 days and prioritize the highest-impact campaign improvements.",
+      "file_attachment_urls": null,
+      "tools_triggered": "listAccountLinks, inspectPerformance, getPerformanceInspectionDetail",
+      "expected_output": "Returns an evidence-backed campaign performance audit with coverage limits and prioritized next actions.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Classify wasted search-term spend without applying changes.",
+      "user_prompt": "Find wasted search-term spend across my enabled campaigns for the last 30 days and prepare an approval-ready exclusion plan.",
+      "file_attachment_urls": null,
+      "tools_triggered": "getSkill, listAccountLinks, analyzeSearchTerms, getSearchTermAnalysisDetail, listNegativeKeywords",
+      "expected_output": "Returns campaign-separated candidates, existing negative coverage, and a proposed plan without changing Google Ads.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Investigate Merchant Center product issues.",
+      "user_prompt": "Show me the Merchant Center products with the most important eligibility issues and explain how to resolve them.",
+      "file_attachment_urls": null,
+      "tools_triggered": "listAccountLinks, listMerchantProductsWithIssues, explainMerchantProductIssues",
+      "expected_output": "Returns affected products, issue severity, and provider-backed resolution options without submitting a form.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Inspect a GTM workspace before proposing a tracking change.",
+      "user_prompt": "Inspect my linked Google Tag Manager account, list the containers and tags, and identify the workspace I should edit.",
+      "file_attachment_urls": null,
+      "tools_triggered": "listAccountLinks, gtm_account, gtm_container, gtm_tag",
+      "expected_output": "Returns the linked GTM account, containers, workspaces, and current tags without modifying them.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Analyze GA4 acquisition performance.",
+      "user_prompt": "Analyze sessions, conversions, and revenue by default channel group in my linked GA4 property for the last 30 days.",
+      "file_attachment_urls": null,
+      "tools_triggered": "listAccountLinks, search_schema, get_ga4_data",
+      "expected_output": "Returns the requested GA4 acquisition metrics by channel with the requested date scope.",
+      "expected_output_url": null
+    }
+  ],
+  "negative_test_cases": [
+    {
+      "description": "Do not trigger for Meta Ads work.",
+      "user_prompt": "Audit my Meta Ads campaigns and update their audiences.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "The plugin should not be invoked because it does not support Meta Ads.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Do not trigger for unrelated calendar requests.",
+      "user_prompt": "What meetings do I have tomorrow?",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "The plugin should not be invoked because calendar management is outside its workflows.",
+      "expected_output_url": null
+    },
+    {
+      "description": "Do not trigger for generic writing without account data.",
+      "user_prompt": "Write a short LinkedIn post about performance marketing.",
+      "file_attachment_urls": null,
+      "tools_triggered": null,
+      "expected_output": "The plugin should not be invoked because the request does not require PPCMax account data or tools.",
+      "expected_output_url": null
+    }
+  ]
+}

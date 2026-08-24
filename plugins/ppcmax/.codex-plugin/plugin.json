@@ -28,7 +28,11 @@
     ],
     "privacyPolicyURL": "https://www.ppcmax.pro/pl/privacy-policy",
     "termsOfServiceURL": "https://www.ppcmax.pro/pl/terms-of-service",
-    "websiteURL": "https://www.ppcmax.pro"
+    "websiteURL": "https://www.ppcmax.pro",
+    "brandColor": "#FF6900",
+    "composerIcon": "./assets/logo.png",
+    "logo": "./assets/logo.png",
+    "logoDark": "./assets/logo-dark.png"
   },
   "mcpServers": "./.mcp.json",
   "apps": "./.app.json"
