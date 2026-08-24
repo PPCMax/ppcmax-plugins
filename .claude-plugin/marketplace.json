@@ -1,0 +1,31 @@
+{
+  "name": "ppcmax",
+  "owner": {
+    "name": "PPCMax",
+    "url": "https://www.ppcmax.pro"
+  },
+  "description": "PPCMax plugins for Claude Code",
+  "plugins": [
+    {
+      "name": "ppcmax",
+      "displayName": "PPCMax",
+      "source": "./claude/plugins/ppcmax",
+      "description": "Audit and optimize Google Ads campaigns, improve Merchant Center feeds, apply Tag Manager changes and analyze Google Analytics data in one specialised workflow.",
+      "version": "1.0.0",
+      "author": {
+        "name": "PPCMax",
+        "url": "https://www.ppcmax.pro"
+      },
+      "homepage": "https://www.ppcmax.pro",
+      "repository": "https://github.com/godami/ppcmax-plugins",
+      "license": "UNLICENSED",
+      "category": "Productivity",
+      "tags": [
+        "google-ads",
+        "merchant-center",
+        "google-analytics",
+        "tag-manager"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "ppcmax",
+  "version": "1.0.0",
+  "description": "Audit and optimize Google Ads campaigns, improve Merchant Center feeds, apply Tag Manager changes and analyze Google Analytics data in one specialised workflow.",
+  "author": {
+    "name": "PPCMax",
+    "url": "https://www.ppcmax.pro"
+  },
+  "homepage": "https://www.ppcmax.pro",
+  "repository": "https://github.com/godami/ppcmax-plugins",
+  "license": "UNLICENSED",
+  "keywords": [
+    "google-ads",
+    "merchant-center",
+    "ppc"
+  ],
+  "interface": {
+    "displayName": "PPCMax",
+    "shortDescription": "Optimize ads, feeds, tags and analytics",
+    "longDescription": "Audit and optimize Google Ads campaigns, improve Merchant Center feeds, apply Tag Manager changes and analyze Google Analytics data in one specialised workflow.",
+    "developerName": "PPCMax",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": [
+      "Audit my linked Google Ads account and prioritize the highest-impact actions",
+      "Find wasted search-term spend and prepare an approval-ready exclusion plan",
+      "Review campaign targets and budgets using PPCMax evidence"
+    ],
+    "privacyPolicyURL": "https://www.ppcmax.pro/pl/privacy-policy",
+    "termsOfServiceURL": "https://www.ppcmax.pro/pl/terms-of-service",
+    "websiteURL": "https://www.ppcmax.pro"
+  },
+  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json"
+}

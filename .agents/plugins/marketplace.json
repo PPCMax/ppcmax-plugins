@@ -1,0 +1,20 @@
+{
+  "name": "ppcmax",
+  "interface": {
+    "displayName": "PPCMax"
+  },
+  "plugins": [
+    {
+      "name": "ppcmax",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ppcmax"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

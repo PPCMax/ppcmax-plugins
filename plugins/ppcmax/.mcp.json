@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "ppcmax": {
+      "type": "http",
+      "url": "https://mcp.ppcmax.pro/mcp",
+      "oauth_resource": "https://mcp.ppcmax.pro/mcp"
+    }
+  }
+}
