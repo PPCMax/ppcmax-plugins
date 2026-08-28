@@ -18,7 +18,7 @@ current behavior without reinstalling.
 ## Install
 
 ```bash
-claude plugin marketplace add godami/ppcmax-plugins
+claude plugin marketplace add PPCMax/ppcmax-plugins
 claude plugin install ppcmax@ppcmax
 ```
 
