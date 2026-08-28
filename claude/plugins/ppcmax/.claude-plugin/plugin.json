@@ -8,7 +8,7 @@
   },
   "homepage": "https://www.ppcmax.pro",
   "repository": "https://github.com/godami/ppcmax-plugins",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "keywords": [
     "google-ads",
     "merchant-center",
