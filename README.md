@@ -10,4 +10,5 @@ Plugin packages for ChatGPT, Codex, and Claude.
 - `.claude-plugin/marketplace.json` is the Claude Code marketplace.
 
 Both packages connect to `https://mcp.ppcmax.pro/mcp`. PPCMax tools and skills
-remain canonical in the MCP server.
+remain canonical in the MCP server. The Claude Code package adds slash commands
+that load those server-side skills; it does not carry its own copies of them.
