@@ -260,18 +260,6 @@
         "read_only_justification": "Creates, updates, submits, or exports Merchant and feed state."
       }
     },
-    "evaluateTRoasCampaign": {
-      "annotations": {
-        "destructiveHint": false,
-        "openWorldHint": false,
-        "readOnlyHint": true
-      },
-      "justifications": {
-        "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
-        "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
-        "read_only_justification": "Only retrieves or computes account information and does not change state."
-      }
-    },
     "explainMerchantProductIssues": {
       "annotations": {
         "destructiveHint": false,
@@ -1064,18 +1052,6 @@
         "read_only_justification": "Only retrieves or computes account information and does not change state."
       }
     },
-    "rejectProductAttributeRecommendationDraft": {
-      "annotations": {
-        "destructiveHint": true,
-        "openWorldHint": false,
-        "readOnlyHint": false
-      },
-      "justifications": {
-        "destructive_justification": "Irreversibly changes the selected private recommendation draft to rejected after approval.",
-        "open_world_justification": "Changes only private PPCMax state and cannot change Google Ads, Merchant Center, or Google Tag Manager.",
-        "read_only_justification": "Creates, updates, deletes, or changes private PPCMax account state."
-      }
-    },
     "researchKeywordIdeas": {
       "annotations": {
         "destructiveHint": false,
@@ -1386,6 +1362,66 @@
         "destructive_justification": "Does not delete, overwrite, revoke access, or perform an irreversible action.",
         "open_world_justification": "Reads provider or PPCMax data without changing public or third-party state.",
         "read_only_justification": "Only retrieves or computes account information and does not change state."
+      }
+    },
+    "inspectAccountLifecycle": {
+      "justifications": {
+        "read_only_justification": "Can refresh and replace the user's stored Google Ads availability snapshot, so it is not strictly read-only.",
+        "open_world_justification": "Only reads integrations or refreshes private PPCMax discovery state and does not publish public internet content.",
+        "destructive_justification": "Does not delete provider resources, revoke access, or perform irreversible external actions."
+      },
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      }
+    },
+    "connectAccountIntegration": {
+      "justifications": {
+        "read_only_justification": "Connects Google Ads, GTM, or GA4 accounts and updates the selected integration bindings.",
+        "open_world_justification": "Changes connections to external Google services, so it can affect third-party integration state.",
+        "destructive_justification": "Changes reversible connection selections without deleting the underlying Google accounts, containers, or properties."
+      },
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      }
+    },
+    "disconnectAccountIntegration": {
+      "justifications": {
+        "read_only_justification": "Disconnects an owned Google Ads, GTM, or GA4 integration and therefore changes account state.",
+        "open_world_justification": "Removes private PPCMax integration bindings without publishing public internet content.",
+        "destructive_justification": "Disconnects the selected integration and may remove account links after explicit approval."
+      },
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      }
+    },
+    "selectMerchantDataSource": {
+      "justifications": {
+        "read_only_justification": "Saves a Merchant Center account or data-source selection for an active onboarding workflow.",
+        "open_world_justification": "Only changes private PPCMax onboarding state and does not publish or modify public internet content.",
+        "destructive_justification": "Does not delete Merchant Center accounts, feeds, or other provider resources."
+      },
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      }
+    },
+    "getProductPerformance": {
+      "justifications": {
+        "read_only_justification": "Only reads and aggregates Google Ads shopping performance data without changing account state.",
+        "open_world_justification": "Does not publish content or modify Google Ads or any other external system.",
+        "destructive_justification": "Does not delete, overwrite, disconnect, or revoke any resource."
+      },
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
       }
     }
   },
