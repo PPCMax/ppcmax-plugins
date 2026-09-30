@@ -1,6 +1,6 @@
 {
   "name": "ppcmax",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Audit and optimize Google Ads campaigns, improve Merchant Center feeds, apply Tag Manager changes and analyze Google Analytics data in one specialised workflow.",
   "author": {
     "name": "PPCMax",
@@ -16,7 +16,7 @@
   ],
   "interface": {
     "displayName": "PPCMax",
-    "shortDescription": "Optimize ads, feeds, tags and analytics",
+    "shortDescription": "Manage Google Ads",
     "longDescription": "Audit and optimize Google Ads campaigns, improve Merchant Center feeds, apply Tag Manager changes and analyze Google Analytics data in one specialised workflow.",
     "developerName": "PPCMax",
     "category": "Productivity",
@@ -32,7 +32,8 @@
     "brandColor": "#FF6900",
     "composerIcon": "./assets/logo.png",
     "logo": "./assets/logo.png",
-    "logoDark": "./assets/logo-dark.png"
+    "logoDark": "./assets/logo-dark.png",
+    "supportURL": "https://www.ppcmax.pro/pl/contact"
   },
   "mcpServers": "./.mcp.json",
   "apps": "./.app.json"
