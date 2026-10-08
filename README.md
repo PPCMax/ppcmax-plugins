@@ -56,7 +56,7 @@ MCP server already serves.
 ## Refresh the OpenAI submission
 
 The OpenAI package is version `1.1.0`. `chatgpt-app-submission.json` reflects
-135 tools from PPCMax main `ccf34ddf590b`
+135 tools from PPCMax main `ccf34ddf594a`
 (2026-10-08), including workspace discovery, image uploads, negative keyword
 conflict checks and scheduled tool calls. It is a review
 snapshot, not the runtime tool registry.
