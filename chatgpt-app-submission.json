@@ -34,24 +34,24 @@
     },
     "ppcmax_create_image_upload": {
       "annotations": {
-        "destructiveHint": false,
+        "destructiveHint": true,
         "openWorldHint": false,
         "readOnlyHint": false
       },
       "justifications": {
-        "destructive_justification": "Creates an upload session or adds uploaded images without replacing or deleting existing resources.",
+        "destructive_justification": "The server conservatively marks scope-gated writes as destructive, including additive variants, because supported clients use this hint to require user confirmation.",
         "open_world_justification": "Changes only private PPCMax state; this tool does not apply changes to an external Google service.",
         "read_only_justification": "Creates a private image-upload session or stores a user-uploaded image in PPCMax."
       }
     },
     "ppcmax_upload_image": {
       "annotations": {
-        "destructiveHint": false,
+        "destructiveHint": true,
         "openWorldHint": false,
         "readOnlyHint": false
       },
       "justifications": {
-        "destructive_justification": "Creates an upload session or adds uploaded images without replacing or deleting existing resources.",
+        "destructive_justification": "The server conservatively marks scope-gated writes as destructive, including additive variants, because supported clients use this hint to require user confirmation.",
         "open_world_justification": "Changes only private PPCMax state; this tool does not apply changes to an external Google service.",
         "read_only_justification": "Creates a private image-upload session or stores a user-uploaded image in PPCMax."
       }
@@ -60,12 +60,12 @@
       "annotations": {
         "destructiveHint": false,
         "openWorldHint": false,
-        "readOnlyHint": false
+        "readOnlyHint": true
       },
       "justifications": {
-        "destructive_justification": "Creates a bounded private analysis run or draft without deleting or overwriting provider resources.",
-        "open_world_justification": "Changes only private PPCMax state; this tool does not apply changes to an external Google service.",
-        "read_only_justification": "Persists a bounded private analysis run or draft so follow-up tools can retrieve its result; does not apply provider changes."
+        "destructive_justification": "Does not delete, overwrite, disconnect, or revoke any resource.",
+        "open_world_justification": "Retrieves information without modifying an external system or publishing content.",
+        "read_only_justification": "Only retrieves or computes information; does not change user or provider state."
       }
     },
     "ppcmax_write_labelizer_config": {
@@ -248,6 +248,18 @@
         "read_only_justification": "Only retrieves or computes information; does not change user or provider state."
       }
     },
+    "merchant_create_data_source": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "The server conservatively marks scope-gated writes as destructive, including additive variants, because supported clients use this hint to require user confirmation.",
+        "open_world_justification": "Can change resources in the user's linked external Google service, beyond private PPCMax state.",
+        "read_only_justification": "Creates an API primary or supplemental data source in the linked Merchant Center account after approval."
+      }
+    },
     "merchant_create_product_duplicates": {
       "annotations": {
         "destructiveHint": true,
@@ -378,18 +390,6 @@
         "destructive_justification": "Does not delete, overwrite, disconnect, or revoke any resource.",
         "open_world_justification": "Retrieves information without modifying an external system or publishing content.",
         "read_only_justification": "Only retrieves or computes information; does not change user or provider state."
-      }
-    },
-    "utils_create_ad_copy_drafts": {
-      "annotations": {
-        "destructiveHint": true,
-        "openWorldHint": false,
-        "readOnlyHint": false
-      },
-      "justifications": {
-        "destructive_justification": "The server conservatively marks scope-gated writes as destructive, including additive variants, because supported clients use this hint to require user confirmation.",
-        "open_world_justification": "Changes only private PPCMax state; this tool does not apply changes to an external Google service.",
-        "read_only_justification": "Creates private PPCMax ad-copy drafts; does not create live Google Ads resources."
       }
     },
     "gads_get_account_performance": {
@@ -525,6 +525,18 @@
       }
     },
     "merchant_get_status_overview": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, disconnect, or revoke any resource.",
+        "open_world_justification": "Retrieves information without modifying an external system or publishing content.",
+        "read_only_justification": "Only retrieves or computes information; does not change user or provider state."
+      }
+    },
+    "merchant_list_data_sources": {
       "annotations": {
         "destructiveHint": false,
         "openWorldHint": false,
@@ -852,24 +864,24 @@
       "annotations": {
         "destructiveHint": false,
         "openWorldHint": false,
-        "readOnlyHint": false
+        "readOnlyHint": true
       },
       "justifications": {
-        "destructive_justification": "Creates a bounded private analysis run or draft without deleting or overwriting provider resources.",
-        "open_world_justification": "Changes only private PPCMax state; this tool does not apply changes to an external Google service.",
-        "read_only_justification": "Persists a bounded private analysis run or draft so follow-up tools can retrieve its result; does not apply provider changes."
+        "destructive_justification": "Does not delete, overwrite, disconnect, or revoke any resource.",
+        "open_world_justification": "Retrieves information without modifying an external system or publishing content.",
+        "read_only_justification": "Only retrieves or computes information; does not change user or provider state."
       }
     },
     "gads_inspect_performance": {
       "annotations": {
         "destructiveHint": false,
         "openWorldHint": false,
-        "readOnlyHint": false
+        "readOnlyHint": true
       },
       "justifications": {
-        "destructive_justification": "Creates a bounded private analysis run or draft without deleting or overwriting provider resources.",
-        "open_world_justification": "Changes only private PPCMax state; this tool does not apply changes to an external Google service.",
-        "read_only_justification": "Persists a bounded private analysis run or draft so follow-up tools can retrieve its result; does not apply provider changes."
+        "destructive_justification": "Does not delete, overwrite, disconnect, or revoke any resource.",
+        "open_world_justification": "Retrieves information without modifying an external system or publishing content.",
+        "read_only_justification": "Only retrieves or computes information; does not change user or provider state."
       }
     },
     "utils_list_documents": {
@@ -1196,18 +1208,6 @@
         "read_only_justification": "Includes operations that create or change resources in the linked external Google service."
       }
     },
-    "gads_validate_ad_text": {
-      "annotations": {
-        "destructiveHint": false,
-        "openWorldHint": false,
-        "readOnlyHint": true
-      },
-      "justifications": {
-        "destructive_justification": "Does not delete, overwrite, disconnect, or revoke any resource.",
-        "open_world_justification": "Retrieves information without modifying an external system or publishing content.",
-        "read_only_justification": "Only retrieves or computes information; does not change user or provider state."
-      }
-    },
     "gads_validate_keyword_metrics": {
       "annotations": {
         "destructiveHint": false,
@@ -1412,6 +1412,18 @@
         "read_only_justification": "Includes operations that create or change resources in the linked external Google service."
       }
     },
+    "merchant_write_data_source_rule": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "The server conservatively marks scope-gated writes as destructive, including additive variants, because supported clients use this hint to require user confirmation.",
+        "open_world_justification": "Can change resources in the user's linked external Google service, beyond private PPCMax state.",
+        "read_only_justification": "Sets which data sources a Merchant Center primary feed takes data from after approval."
+      }
+    },
     "merchant_write_product_issue_action": {
       "annotations": {
         "destructiveHint": true,
@@ -1440,12 +1452,12 @@
       "annotations": {
         "destructiveHint": false,
         "openWorldHint": false,
-        "readOnlyHint": false
+        "readOnlyHint": true
       },
       "justifications": {
-        "destructive_justification": "Creates a bounded private analysis run or draft without deleting or overwriting provider resources.",
-        "open_world_justification": "Changes only private PPCMax state; this tool does not apply changes to an external Google service.",
-        "read_only_justification": "Persists a bounded private analysis run or draft so follow-up tools can retrieve its result; does not apply provider changes."
+        "destructive_justification": "Does not delete, overwrite, disconnect, or revoke any resource.",
+        "open_world_justification": "Retrieves information without modifying an external system or publishing content.",
+        "read_only_justification": "Only retrieves or computes information; does not change user or provider state."
       }
     },
     "gads_get_dsa_term_detail": {
@@ -1530,6 +1542,90 @@
         "destructive_justification": "The server conservatively marks scope-gated writes as destructive, including additive variants, because supported clients use this hint to require user confirmation.",
         "open_world_justification": "Can change resources in the user's linked external Google service, beyond private PPCMax state.",
         "read_only_justification": "Includes operations that create or change resources in the linked external Google service."
+      }
+    },
+    "gads_get_placement_performance": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, disconnect, or revoke any resource.",
+        "open_world_justification": "Retrieves information without modifying an external system or publishing content.",
+        "read_only_justification": "Only retrieves or computes information; does not change user or provider state."
+      }
+    },
+    "gads_list_placement_exclusions": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, disconnect, or revoke any resource.",
+        "open_world_justification": "Retrieves information without modifying an external system or publishing content.",
+        "read_only_justification": "Only retrieves or computes information; does not change user or provider state."
+      }
+    },
+    "gads_write_placement_exclusions": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "The server conservatively marks scope-gated writes as destructive, including additive variants, because supported clients use this hint to require user confirmation.",
+        "open_world_justification": "Can change resources in the user's linked external Google service, beyond private PPCMax state.",
+        "read_only_justification": "Adds or removes placement exclusions in the linked Google Ads account after approval."
+      }
+    },
+    "gads_create_display_campaign": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "The server conservatively marks scope-gated writes as destructive, including additive variants, because supported clients use this hint to require user confirmation.",
+        "open_world_justification": "Can change resources in the user's linked external Google service, beyond private PPCMax state.",
+        "read_only_justification": "Creates a paused Display campaign with responsive display ads in the linked Google Ads account after approval."
+      }
+    },
+    "utils_write_planner_note": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "The server conservatively marks scope-gated writes as destructive, including additive variants, because supported clients use this hint to require user confirmation.",
+        "open_world_justification": "Changes only private PPCMax state; this tool does not apply changes to an external Google service.",
+        "read_only_justification": "Adds a dated note to the private PPCMax account planner; never runs anything."
+      }
+    },
+    "utils_schedule_tool_calls": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "The server conservatively marks scope-gated writes as destructive, including additive variants, because supported clients use this hint to require user confirmation.",
+        "open_world_justification": "Changes only private PPCMax state; this tool does not apply changes to an external Google service.",
+        "read_only_justification": "Schedules approved PPCMax tool calls to run later or on repeat; the calls themselves keep their own approval rules."
+      }
+    },
+    "gads_inspect_negative_conflicts": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "Does not delete, overwrite, disconnect, or revoke any resource.",
+        "open_world_justification": "Retrieves information without modifying an external system or publishing content.",
+        "read_only_justification": "Only retrieves or computes information; does not change user or provider state."
       }
     }
   },
